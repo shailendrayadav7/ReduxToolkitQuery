@@ -1,8 +1,7 @@
 
 import React from 'react';
-// import { useFetchProductsQuery } from '../services/products';
-import { useFetchProductsQuery } from '../services/products'; 
-import CardComponent from '../components/CardComponent/CardComponent';
+import { useFetchProductsQuery } from '../../services/products'; 
+import CardComponent from '../CardComponent/CardComponent';
 
 
 const ProductPage: React.FC = () => {
@@ -14,6 +13,11 @@ const ProductPage: React.FC = () => {
 
   if (isError) {
     return <div>Error fetching products.</div>; 
+  }
+
+  // Add a nullish check for the 'products' variable
+  if (!products) {
+    return <div>No products available.</div>;
   }
 
   return (
